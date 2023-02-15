@@ -1,3 +1,10 @@
 <resources>
-    <string name="app_name">TIFU</string>
+    <string name="app_name">Read-It</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="tifu_button_text">R/TIFU</string>
+    <string name="dadjokes_button_text">R/DadJokes</string>
+    <string name="mic_button_text">Mic</string>
+    <string name="prompt_tifu">Enter prompt text starting with TIFU by </string>
+    <string name="generate_story_button_text">Generate Story</string>
+    <string name="response_tifu">Response: </string>
 </resources>
