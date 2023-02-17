@@ -37,53 +37,27 @@ class Tifu : Fragment(){
         return binding.root
     }
 
-    suspend fun receiveOpenAiData(promptInput: String){
+    suspend fun receiveOpenAiData(promptInput: String) {
         val openAI = OpenAI(BuildConfig.API_KEY)
-        val models: List<Model> = openAI.models()
-//        for (e in models){
-//            Log.d("eee", e.toString())
-//            val completionRequest = CompletionRequest(
-//                model= ModelId("davinci:ft-personal-2023-02-11-13-36-59"),
-//                prompt = promptInput,
-//                maxTokens = 400,
-//                echo = true,
-//            )
-//            val completion: TextCompletion = openAI.completion(completionRequest)
-//            val resultData = completion.choices[0].text
-//            Log.d("plswork", completion.toString())
-        val resultDataTest = "TIFU by eating too many gummie bears and having to poop massively in the toilet.\n" +
-                "    \n" +
-                "    Not a FU. Happened two hours ago\n" +
-                "    \n" +
-                "    I was hungry and opened the bag of gummie bears I bought to have over the weekend. Having a sweet to eat makes you feel better about life and honestly going to bed with my stomach somewhat full is life changing. Eat now, sleep feeling like a pig later.\n" +
-                "    \n" +
-                "    Well guess what happened~\n" +
-                "    \n" +
-                "    I ate a handful of medium sized gummie bears and decided I needed to see the toilet urgently.\n" +
-                "    \n" +
-                "    Well evidently that bears were mostly neon gummie and other colours because I had to drop a big one (with some grunts, naturally) that engulfed the whole toilet. When i pulled the flush lever the mass stayed there, nose level.\n" +
-                "    \n" +
-                "    Tbh tho despite being exhausted like a hungover man, it felt amazing knowing I was lowering the amount of toilet paper used and cleaning the bowl without breaking a sweat. I felt like super woman and I felt a little warm inside.\n" +
-                "    \n" +
-                "    I went to bed with a smile on my face.\n" +
-                "    \n" +
-                "    TL;DR: Eated too many gummie bears and had to drop a big one to salute the toilet\n" +
-                "    \n" +
-                "    EDIT: Wow my first time getting above 100 upvotes in less than 24 hours  END EDIT\n" +
-                "    \n" +
-                "     END TLDR\n" +
-                "    \n" +
-                "     END END END END ENDED END END END END END END END END END END END END END END END END END END END END END END END END END END END END END END END END END END END END END END END END END END END END END END END END END END END END END END END END END END END END END END END END END END END END END END END END END END END END END END END END END END END END END END END END END END END END END END END END END END END END END END END END END END END END END END END END END END END END END END END END"
+        val completionRequest = CompletionRequest(
+            model = ModelId("davinci:ft-personal-2023-02-11-13-36-59"),
+            prompt = promptInput,
+            maxTokens = 300,
+            echo = true,
+        )
+        val completion: TextCompletion = openAI.completion(completionRequest)
+        val resultData = completion.choices[0].text
+        Log.d("plswork", completion.toString())
 
-        val formattedText = formatResponse(resultDataTest)
+        val formattedText = formatResponse(resultData)
 
         activity?.runOnUiThread(Runnable {
-                // Stuff that updates the UI
+            // Stuff that updates the UI
 //            binding.responseSection.setText("Response : " + completion.choices[0].text)
-              binding.responseSection.setText("Response : " + formattedText)
+            binding.responseSection.setText("Response : " + formattedText)
 
-            })
-        }
+        })
+    }
 
     fun formatResponse(response: String): String {
         var trimmedString = response.replace("\n", " ").replace("END", "").replace("\t", "").replace("    ", "").trim()

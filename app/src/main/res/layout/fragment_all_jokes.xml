@@ -33,13 +33,15 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/32"
+                android:id="@+id/jokesList"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="136dp"
-                android:fontFamily="@font/poppins_medium"
+                android:fontFamily="@font/poppins_light"
+                android:paddingLeft="20sp"
+                android:paddingRight="20sp"
                 android:textColor="#FFFFFF"
-                android:textSize="18sp"
+                android:textSize="15sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.496"
                 app:layout_constraintStart_toStartOf="parent"
