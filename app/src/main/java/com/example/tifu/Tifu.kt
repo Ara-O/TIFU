@@ -11,19 +11,21 @@ import com.aallam.openai.api.completion.TextCompletion
 import com.aallam.openai.api.model.Model
 import com.aallam.openai.api.model.ModelId
 import com.aallam.openai.client.OpenAI
+import com.example.tifu.databinding.FragmentAllJokesBinding
 import com.example.tifu.databinding.FragmentTifuBinding
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
 
-class Tifu : Fragment() {
-    private lateinit var binding: FragmentTifuBinding
+class Tifu : Fragment(){
+    private var _binding: FragmentTifuBinding? = null
+    private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentTifuBinding.inflate(inflater, container, false)
+        _binding = FragmentTifuBinding.inflate(inflater, container, false)
         // Inflate the layout for this fragment
         binding.generateStory.setOnClickListener{
             var promptInput = binding.promptInput.text.toString()
@@ -84,7 +86,7 @@ class Tifu : Fragment() {
         }
 
     fun formatResponse(response: String): String {
-        var trimmedString = response.replace("\n", " ").replace("END", "").replace("\t", "")
+        var trimmedString = response.replace("\n", " ").replace("END", "").replace("\t", "").replace("    ", "").trim()
         return trimmedString
     }
 

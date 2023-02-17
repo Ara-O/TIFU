@@ -5,6 +5,10 @@
     <string name="dadjokes_button_text">R/DadJokes</string>
     <string name="mic_button_text">Mic</string>
     <string name="prompt_tifu">Enter prompt text starting with TIFU by </string>
+    <string name="prompt_dad_jokes">Enter joke setup for GPT 3 to complete </string>
     <string name="generate_story_button_text">Generate Story</string>
+    <string name="generate_punchline_button_text">Generate Punchline</string>
     <string name="response_tifu">Response: </string>
+    <string name="save_story_button_text">Save Story</string>
+    <string name="saved_jokes_text">Saved Jokes</string>
 </resources>

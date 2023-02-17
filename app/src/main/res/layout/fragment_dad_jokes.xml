@@ -1,15 +1,110 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/scrollView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#373737"
-    tools:context=".DadJokes">
-
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    android:fillViewport="true">
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="108dp"
-        android:text="dad jokes" />
+        android:layout_height="match_parent"
+        android:background="#272727"
+        tools:context=".Tifu">
 
-</FrameLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="50dp">
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="52dp"
+                android:fontFamily="@font/poppins_medium"
+                android:text="@string/dadjokes_button_text"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.498"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/promptInput"
+                android:layout_width="318dp"
+                android:layout_height="198dp"
+                android:windowSoftInputMode="adjustNothing"
+                android:layout_marginTop="28dp"
+                android:layout_weight="1"
+                android:autofillHints="text"
+                android:background="#C9404040"
+                android:fontFamily="@font/poppins_light"
+                android:gravity="top"
+                android:hint="@string/prompt_tifu"
+                android:inputType="textCapSentences|textMultiLine"
+                android:maxLength="2000"
+                android:maxLines="4"
+                android:padding="15dp"
+                android:scrollHorizontally="false"
+                android:textColor="#FFFFFF"
+                android:textColorHint="#D3D3D3"
+                android:textSize="13sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.494"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/generatePunchline"
+                style="@style/Widget.AppCompat.Button"
+                android:layout_width="176dp"
+                android:layout_height="53dp"
+                android:layout_marginTop="40dp"
+                android:backgroundTint="#191919"
+                android:fontFamily="@font/poppins_medium"
+                android:text="@string/generate_punchline_button_text"
+                android:textColor="#FFFFFF"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.497"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/promptInput" />
+
+            <TextView
+                android:id="@+id/responseSection"
+                android:layout_width="315dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="52dp"
+                android:ems="10"
+                android:fontFamily="@font/poppins_light"
+                android:text="@string/response_tifu"
+                android:textColor="#FFFFFF"
+                android:textColorHint="#DADADA"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/generatePunchline"
+                app:lineHeight="20sp" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/saveJoke"
+                style="@style/Widget.AppCompat.Button"
+                android:layout_width="138dp"
+                android:layout_height="49dp"
+                android:layout_marginTop="48dp"
+                android:backgroundTint="#191919"
+                android:fontFamily="@font/poppins_medium"
+                android:text="@string/save_story_button_text"
+                android:textColor="#FFFFFF"
+                android:textSize="12sp"
+                android:visibility="invisible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.168"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/responseSection" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </FrameLayout>
+</ScrollView>

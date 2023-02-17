@@ -15,7 +15,8 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_marginBottom="50dp">
 
         <TextView
             android:id="@+id/textView"
@@ -41,7 +42,8 @@
             android:background="#C9404040"
             android:fontFamily="@font/poppins_light"
             android:gravity="top"
-            android:hint="@string/prompt_tifu"
+            android:windowSoftInputMode="stateUnchanged|adjustNothing"
+            android:hint="@string/prompt_dad_jokes"
             android:inputType="textCapSentences|textMultiLine"
             android:maxLength="2000"
             android:maxLines="4"
@@ -85,6 +87,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/generateStory"
             app:lineHeight="20sp" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
 </ScrollView>
